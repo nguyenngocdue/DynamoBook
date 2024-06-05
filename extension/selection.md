@@ -15,16 +15,8 @@
 **Code example**
 
 ```python
-public function changeDataSource($dataSource, $params)
-   {
-      $manageApps = LibApps::getAll();
-      foreach ($dataSource as &$values) {
-         $parentType = $values->parent_type;
-         $nickName = $manageApps[$parentType]['nickname'] ?? $values->parent_type;
-         $values->parent_type = strtoupper($nickName);
-      }
-      return $dataSource;
-   }
+   
+   print(123)
 
 ```
 
