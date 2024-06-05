@@ -28,5 +28,5 @@
   * [Views](basic-interaction-with-revit-elements/views.md)
   * [Transactions](basic-interaction-with-revit-elements/transactions.md)
 * [Design Extension](design-extension/README.md)
-  * [Part 1](extension/selection.md)
-  * [Part 2](extension/selection.md)
+  * [Part 1](extension/part1.md)
+  * [Part 2](extension/part2.md)
