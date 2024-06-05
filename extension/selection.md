@@ -1,4 +1,6 @@
-* **Dynamo Sandbox**
+# Design Extension
+
+### Stage 1
 
 1. **Column**
 2. **Framing**
@@ -8,5 +10,5 @@
 6. **Door**
 7. **Furniture**
 8. **Model InPlace**
-9.  **Line**
+9. **Line**
 10. **Grid**
