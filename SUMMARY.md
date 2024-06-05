@@ -28,5 +28,5 @@
   * [Views](basic-interaction-with-revit-elements/views.md)
   * [Transactions](basic-interaction-with-revit-elements/transactions.md)
 * [Design Extension](extension/selection.md)
-  * [Filtering](extension/test.md)
+  * [Filtering](extension/test.html)
   
