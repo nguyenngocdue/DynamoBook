@@ -23,7 +23,7 @@
 
 <details>
 
-<summary><strong>Floor <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Floor</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -38,7 +38,7 @@
 
 <details>
 
-<summary><strong>Wall <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Wall</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -53,7 +53,7 @@
 
 <details>
 
-<summary><strong>Window <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Window</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -68,7 +68,7 @@
 
 <details>
 
-<summary><strong>Door <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Door</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -83,7 +83,7 @@
 
 <details>
 
-<summary><strong>Furniture <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Furniture</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -98,7 +98,7 @@
 
 <details>
 
-<summary><strong>Model InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Model</strong> InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -113,7 +113,7 @@
 
 <details>
 
-<summary><strong>Line <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Line</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -128,7 +128,7 @@
 
 <details>
 
-<summary><strong>Grid <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Grid</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -143,7 +143,7 @@
 
 <details>
 
-<summary><strong>Pipe <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Pipe</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -175,7 +175,7 @@
 
 <details>
 
-<summary><strong>Floor <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Floor</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -190,7 +190,7 @@
 
 <details>
 
-<summary><strong>Wall <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Wall</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -205,7 +205,7 @@
 
 <details>
 
-<summary><strong>Window <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Window</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -220,7 +220,7 @@
 
 <details>
 
-<summary><strong>Door <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Door</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -235,7 +235,7 @@
 
 <details>
 
-<summary><strong>Furniture <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Furniture</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -250,7 +250,7 @@
 
 <details>
 
-<summary><strong>Model InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Model</strong> InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -265,7 +265,7 @@
 
 <details>
 
-<summary><strong>Line <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Line</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -280,7 +280,7 @@
 
 <details>
 
-<summary><strong>Grid <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Grid</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -295,7 +295,7 @@
 
 <details>
 
-<summary><strong>Pipe <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Pipe</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -327,7 +327,7 @@
 
 <details>
 
-<summary><strong>Floor <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Floor</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -342,7 +342,7 @@
 
 <details>
 
-<summary><strong>Wall <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Wall</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -357,7 +357,7 @@
 
 <details>
 
-<summary><strong>Window <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Window</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -372,7 +372,7 @@
 
 <details>
 
-<summary><strong>Door <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Door</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -387,7 +387,7 @@
 
 <details>
 
-<summary><strong>Furniture <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Furniture</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -402,7 +402,7 @@
 
 <details>
 
-<summary><strong>Model InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Model</strong> InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -417,7 +417,7 @@
 
 <details>
 
-<summary><strong>Line <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Line</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -432,7 +432,7 @@
 
 <details>
 
-<summary><strong>Grid <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Grid</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
@@ -447,7 +447,7 @@
 
 <details>
 
-<summary><strong>Pipe <mark style="color:yellow;">(coming soon)</mark></summary>
+<summary><strong>Pipe</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
 
 #### ![](../.gitbook/assets/highlight.png)
 
