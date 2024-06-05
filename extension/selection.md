@@ -39,16 +39,18 @@
 7. **Furniture**
 8. **Model InPlace**
 9. **Line**
-10. **Grid**
-
-```
-// Some code
-```
 
 <details>
 
 <summary>a</summary>
 
-a
+![](<../.gitbook/assets/image (14).png>)
+
+1. **Grid**
+
+```
+// Some code
+
+```
 
 </details>
