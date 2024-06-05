@@ -8,11 +8,11 @@
 
 <summary>Column</summary>
 
-![](<../.gitbook/assets/image (14).png>)
+<img src="../.gitbook/assets/image (14).png" alt="" data-size="original">
 
 **Code example**
 
-```
+```python
 public function changeDataSource($dataSource, $params)
    {
       $manageApps = LibApps::getAll();
@@ -28,7 +28,6 @@ public function changeDataSource($dataSource, $params)
 
 </details>
 
-
 1. **Framing**
 2. **Floor**
 3. **Wall**
@@ -37,7 +36,7 @@ public function changeDataSource($dataSource, $params)
 6. **Furniture**
 7. **Model InPlace**
 8. **Line**
-9.  **Grid**
+9. **Grid**
 
 #### Filtering
 
@@ -68,7 +67,7 @@ public function changeDataSource($dataSource, $params)
 
 <summary>a</summary>
 
-![](<../.gitbook/assets/image (14).png>)
+<img src="../.gitbook/assets/image (14).png" alt="" data-size="original">
 
 1. **Grid**
 
