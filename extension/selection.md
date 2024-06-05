@@ -1,14 +1,16 @@
 # Design Extension
 
-### Stage 1
+## Stage 1
 
-#### Selection
+***
+
+### Selection
 
 <details>
 
 <summary>Column</summary>
 
-<img src="../.gitbook/assets/image (14).png" alt="" data-size="original">
+## ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
