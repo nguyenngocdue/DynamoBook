@@ -28,4 +28,4 @@
   * [Views](basic-interaction-with-revit-elements/views.md)
   * [Transactions](basic-interaction-with-revit-elements/transactions.md)
 * [Design Extension]
-  *[Part1] (extension/selection.md)
+  *[Part1](extension/selection.md)
