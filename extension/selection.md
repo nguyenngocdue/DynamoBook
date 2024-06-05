@@ -15,7 +15,111 @@
 **Code example**
 
 ```python
-   
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary>Column</summary>
+
+## ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
    print(123)
 
 ```
