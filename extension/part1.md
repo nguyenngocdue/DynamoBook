@@ -1,572 +1,149 @@
 # Part 1
 
-## Part 1
+### Filtering
 
 ***
 
-### Selection
+## Selection
 
-<details>
+Nếu bạn muốn thực hiện việc chọn đối tượng trực tiếp (selection) trong Dynamo bằng Python, thường thì việc này liên quan đến việc tương tác người dùng trực tiếp với giao diện Revit. Dưới đây là các cách tiếp cận phổ biến để thực hiện điều này:
 
-<summary><a href="part1.md#column-coming-soon">Column</a> <mark style="color:yellow;">(coming soon)</mark></summary>
+#### 1. PickObjects
 
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
+Bạn có thể yêu cầu người dùng chọn đối tượng trên giao diện Revit trước khi chạy script.
 
-**Code example**
-
-{% code overflow="wrap" %}
 ```python
-# Importing necessary libraries
 import clr
-clr.AddReference('RevitServices')
 clr.AddReference('RevitAPI')
-clr.AddReference('RevitNodes')
-import Revit
-clr.ImportExtensions(Revit.Elements)
-clr.ImportExtensions(Revit.GeometryConversion)
+clr.AddReference('RevitAPIUI')
+from Autodesk.Revit.UI import *
+from Autodesk.Revit.DB import *
+from Autodesk.Revit.UI.Selection import ObjectType  # Explicit import of ObjectType
+
+clr.AddReference("RevitServices")
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
-from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, ElementCategoryFilter
 
-# Getting the current Revit document and view
-doc = DocumentManager.Instance.CurrentDBDocument
-uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
-current_view = uidoc.ActiveView
+uiapp = DocumentManager.Instance.CurrentUIApplication
+uidoc = uiapp.ActiveUIDocument
+doc = uidoc.Document
 
-# Creating a filter to get all columns in the current view
-column_filter = ElementCategoryFilter(BuiltInCategory.OST_Columns)
+# Request the user to select objects
+selected_refs = uidoc.Selection.PickObjects(ObjectType.Element, "Please select objects")
 
-# Collecting all columns in the current view
-columns_in_view = FilteredElementCollector(doc, current_view.Id).WherePasses(column_filter).ToElements()
+# Retrieve the objects from the selected references
+selected_elements = [doc.GetElement(ref.ElementId) for ref in selected_refs]
 
-# Output the results
-OUT = [column.ToDSType(True) for column in columns_in_view]
+OUT = selected_elements
 ```
-{% endcode %}
 
-Lựa chọn những column theo điều kiện đầu vào của user:\
-`nstance parameter`
+#### 2. PickObject
 
-{% code overflow="wrap" %}
+Nếu bạn chỉ muốn người dùng chọn một đối tượng duy nhất.
+
 ```python
-# Importing necessary libraries
 import clr
-clr.AddReference('RevitServices')
 clr.AddReference('RevitAPI')
-clr.AddReference('RevitNodes')
-import Revit
-clr.ImportExtensions(Revit.Elements)
-clr.ImportExtensions(Revit.GeometryConversion)
+clr.AddReference('RevitAPIUI')
+from Autodesk.Revit.UI import *
+from Autodesk.Revit.DB import *
+from Autodesk.Revit.UI.Selection import ObjectType  # Explicit import of ObjectType
+
+clr.AddReference("RevitServices")
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
-from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, ElementCategoryFilter, BuiltInParameter
 
-# Getting the current Revit document and view
-doc = DocumentManager.Instance.CurrentDBDocument
-uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
-current_view = uidoc.ActiveView
+uiapp = DocumentManager.Instance.CurrentUIApplication
+uidoc = uiapp.ActiveUIDocument
+doc = uidoc.Document
 
-# Creating a filter to get all columns in the current view
-column_filter = ElementCategoryFilter(BuiltInCategory.OST_Columns)
+selected_ref = uidoc.Selection.PickObject(ObjectType.Element, "Vui lòng chọn một đối tượng")
 
-# Collecting all columns in the current view
-columns_in_view = FilteredElementCollector(doc, current_view.Id).WherePasses(column_filter).ToElements()
+selected_element = doc.GetElement(selected_ref.ElementId)
 
-# Filtering columns with width greater than 500
-columns_with_width_greater_than_500 = []
-for column in columns_in_view:
-    width_param = column.LookupParameter("Width")
-    if width_param and width_param.AsDouble() > 500:
-        columns_with_width_greater_than_500.append(column)
-
-# Output the results
-OUT = [column.ToDSType(True) for column in columns_with_width_greater_than_500]
+OUT = selected_element
 ```
-{% endcode %}
 
-`edit type`
+Phương pháp này cho phép người dùng tương tác trực tiếp với Revit và chọn các đối tượng cụ thể mà họ muốn xử lý. Thông thường, các phương pháp này sẽ được sử dụng trong một môi trường Dynamo hoặc Python Script trong Revit để cho phép người dùng thao tác trực tiếp trên giao diện.
 
-{% code overflow="wrap" %}
+#### 3. `PickElementsByRectangle`
+
+Dùng phương thức `PickElementsByRectangle` trong Dynamo Python để cho phép người dùng chọn các đối tượng thông qua hình chữ nhật là một cách tiếp cận khác. Phương thức này trực tiếp yêu cầu người dùng vẽ một hình chữ nhật trên màn hình để chọn các đối tượng. Sau đây là cách bạn có thể viết code để thực hiện việc này:
+
+_Example 1:_
+
+<pre class="language-python"><code class="lang-python"><strong># Import necessary libraries
+</strong>import clr
+clr.AddReference('RevitAPI')  # Reference to Revit API
+clr.AddReference('RevitAPIUI')  # Reference to Revit API User Interface
+from Autodesk.Revit.UI import *  # Import everything from Revit UI namespace
+from Autodesk.Revit.DB import *  # Import everything from Revit DB namespace
+
+clr.AddReference("RevitServices")  # Reference to Revit Services, to access document and transaction managers
+from RevitServices.Persistence import DocumentManager  # Import Document Manager
+from RevitServices.Transactions import TransactionManager  # Import Transaction Manager
+
+# Get the current UI application and document from Revit
+uiapp = DocumentManager.Instance.CurrentUIApplication
+uidoc = uiapp.ActiveUIDocument
+doc = uidoc.Document
+
+# Start a transaction if you want to make changes to the model
+TransactionManager.Instance.EnsureInTransaction(doc)
+
+try:
+    # Request the user to select elements by drawing a rectangle
+    selected_elements = uidoc.Selection.PickElementsByRectangle("Please draw a rectangle to select elements")
+    
+    # Output the selected elements
+    OUT = selected_elements
+
+finally:
+    # End the transaction
+    TransactionManager.Instance.TransactionTaskDone()
+</code></pre>
+
+_Example 2:_ ISelectionFilter
+
 ```python
-# Importing necessary libraries
 import clr
-clr.AddReference('RevitServices')
 clr.AddReference('RevitAPI')
-clr.AddReference('RevitNodes')
-import Revit
-clr.ImportExtensions(Revit.Elements)
-clr.ImportExtensions(Revit.GeometryConversion)
+clr.AddReference('RevitAPIUI')
+from Autodesk.Revit.UI import *
+from Autodesk.Revit.DB import *
+from Autodesk.Revit.UI.Selection import *
+
+clr.AddReference("RevitServices")
 from RevitServices.Persistence import DocumentManager
-from RevitServices.Transactions import TransactionManager
-from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, ElementCategoryFilter, ParameterType
 
-# Getting the current Revit document and view
 doc = DocumentManager.Instance.CurrentDBDocument
-uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
-current_view = uidoc.ActiveView
+uiDoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
 
-# Creating a filter to get all columns in the current view
-column_filter = ElementCategoryFilter(BuiltInCategory.OST_Columns)
+class SelectionFilter(ISelectionFilter):
+	def __init__(self, ctgName1 , ctgName2):
+		self.ctgName1 = ctgName1
+		self.ctgName2 = ctgName2
 
-# Collecting all columns in the current view
-columns_in_view = FilteredElementCollector(doc, current_view.Id).WherePasses(column_filter).ToElements()
+	def AllowElement(self, element):
+		if element.Category.Name == self.ctgName1 or element.Category.Name == self.ctgName2:
+			return True
+		else:
+			return False
+	def AllowReference(ref, xyZ):
+		return False
 
-# Filtering columns with type width greater than 500 mm
-columns_with_width_greater_than_500 = []
-for column in columns_in_view:
-    column_type_id = column.GetTypeId()
-    column_type = doc.GetElement(column_type_id)
-    parameters = column_type.Parameters
-    for param in parameters:
-        # Check if parameter name is "Width"
-        if param.Definition.Name == "Width":
-            width_value = param.AsDouble() * 304.8  # Convert from feet to mm
-            if width_value > 500:
-                columns_with_width_greater_than_500.append(column)
-                break  # Exit the loop once the width parameter is found and processed
+selectionFilter = SelectionFilter("Walls", "Structural Columns")
+selectedElements = uiDoc.Selection.PickElementsByRectangle(selectionFilter, "Select elements")
 
-# Output the results
-OUT = [column.ToDSType(True) for column in columns_with_width_greater_than_500]
+columns = []
+walls = []
+for element in selectedElements:
+    if element.Category.Name == "Structural Columns":
+        columns.append(element)
+    elif element.Category.Name == "Walls":
+        walls.append(element)
+
+OUT = (columns, walls)
 ```
-{% endcode %}
-
-</details>
-
-<details>
-
-<summary><strong>Floor</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Wall</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Window</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Door</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Furniture</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Model</strong> InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Line</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Grid</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Pipe</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-### Filtering
-
-<details>
-
-<summary>Column</summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Floor</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Wall</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Window</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Door</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Furniture</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Model</strong> InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Line</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Grid</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Pipe</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
 
 ### Changed Parameters
-
-<details>
-
-<summary>Column</summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Floor</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Wall</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Window</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Door</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Furniture</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Model</strong> InPlace <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Line</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Grid</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Pipe</strong> <mark style="color:yellow;">(coming soon)</mark></summary>
-
-<img src="../.gitbook/assets/highlight.png" alt="" data-size="original">
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
