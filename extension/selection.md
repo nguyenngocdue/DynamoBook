@@ -6,8 +6,12 @@
 
 <details>
 
-<summary>1. **Column**</summary>
+<summary>Column</summary>
+
 ![](<../.gitbook/assets/image (14).png>)
+
+**Code example**
+
 ```
 public function changeDataSource($dataSource, $params)
    {
@@ -19,7 +23,9 @@ public function changeDataSource($dataSource, $params)
       }
       return $dataSource;
    }
+
 ```
+
 </details>
 
 
