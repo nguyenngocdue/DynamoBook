@@ -1,86 +1,80 @@
+
 ---
 description: >-
-  This page will guide you through the provided Revit API script, explaining
-  each segment and its purpose. The script leverages the Revit API and Dynamo to
-  interact with Revit documents programmatically
----
+  Trang này sẽ hướng dẫn bạn qua script API Revit được cung cấp, giải thích từng phần và mục đích của nó. Script này tận dụng Revit API và Dynamo để tương tác với các tài liệu Revit một cách lập trình.
 
-# Explaining the Revit API Script
+# Giải Thích Script API Revit
 
 ```python
-import clr #This is .NET's Common Language Runtime. It's an execution environment
-#that is able to execute code from several different languages.
+import clr #Đây là Môi Trường Thực Thi Ngôn Ngữ Chung của .NET. Nó là một môi trường thực thi
+#có thể thực thi mã từ nhiều ngôn ngữ khác nhau.
 
-import sys #sys is a fundamental Python library - here, we're using it to load in
-#the standard IronPython libraries
-sys.path.append('C:\Program Files (x86)\IronPython 2.7\Lib') #Imports the
-#standard IronPython libraries, which cover everything from servers and
-#encryption through to regular expressions.
+import sys #sys là một thư viện Python cơ bản - ở đây, chúng tôi sử dụng nó để tải vào
+#các thư viện chuẩn của IronPython.
+sys.path.append('C:\Program Files (x86)\IronPython 2.7\Lib') #Nhập các thư viện chuẩn
+#của IronPython, bao gồm tất cả từ máy chủ và mã hóa cho đến các biểu thức chính quy.
 
+import System #Không gian tên System tại gốc của .NET
 
-import System #The System namespace at the root of .NET
+from System import Array #Lớp .NET để xử lý thông tin mảng
 
-from System import Array #.NET class for handling array information
+from System.Collections.Generic import * #Cho phép xử lý generics. API của Revit
+#đôi khi yêu cầu các danh sách 'generic' có kiểu cứng, gọi là IList. Nếu bạn không cần
+#những cái này, bạn có thể xóa dòng này.
+clr.AddReference('ProtoGeometry')  #Thư viện của Dynamo cho các lớp hình học proxy
+#Bạn chỉ cần cái này nếu bạn đang tương tác với hình học.
 
-from System.Collections.Generic import * #Lets you handle generics. Revit's API
-#sometimes wants hard-typed 'generic' lists, called ILists. If you don't need
-#these you can delete this line.
-clr.AddReference('ProtoGeometry')  #A Dynamo library for its proxy geometry
-#classes. You'll only need this if you're interacting with geometry.
+from Autodesk.DesignScript.Geometry import * #Tải mọi thứ trong thư viện hình học của Dynamo
+clr.AddReference("RevitNodes") #Các node của Dynamo cho Revit
 
-
-from Autodesk.DesignScript.Geometry import * #Loads everything in Dynamo's
-#geometry library
-clr.AddReference("RevitNodes") #Dynamo's nodes for Revit
-
-import Revit #Loads in the Revit namespace in RevitNodes
-clr.ImportExtensions(Revit.Elements) #More loading of Dynamo's Revit libraries
-clr.ImportExtensions(Revit.GeometryConversion) #More loading of Dynamo's
-#Revit libraries. You'll only need this if you're interacting with geometry.
-clr.AddReference("RevitServices") #Dynamo's classes for handling Revit documents
+import Revit #Tải không gian tên Revit trong RevitNodes
+clr.ImportExtensions(Revit.Elements) #Tải thêm các thư viện Revit của Dynamo
+clr.ImportExtensions(Revit.GeometryConversion) #Tải thêm các thư viện Revit của Dynamo.
+#Bạn chỉ cần cái này nếu bạn đang tương tác với hình học.
+clr.AddReference("RevitServices") #Các lớp của Dynamo để xử lý các tài liệu Revit
 
 import RevitServices 
-from RevitServices.Persistence import DocumentManager #An internal Dynamo class
-#that keeps track of the document that Dynamo is currently attached to
-from RevitServices.Transactions import TransactionManager #A Dynamo class for
-#opening and closing transactions to change the Revit document's database
-clr.AddReference("RevitAPI") #Adding reference to Revit's API DLLs
-clr.AddReference("RevitAPIUI") #Adding reference to Revit's API DLLs
+from RevitServices.Persistence import DocumentManager #Một lớp nội bộ của Dynamo
+#theo dõi tài liệu mà Dynamo hiện đang đính kèm
+from RevitServices.Transactions import TransactionManager #Một lớp của Dynamo để
+#mở và đóng các giao dịch để thay đổi cơ sở dữ liệu tài liệu của Revit
+clr.AddReference("RevitAPI") #Thêm tham chiếu đến các DLL API của Revit
+clr.AddReference("RevitAPIUI") #Thêm tham chiếu đến các DLL API của Revit
 
-import Autodesk #Loads the Autodesk namespace
-from Autodesk.Revit.DB import * #Loading Revit's API classes
-from Autodesk.Revit.UI import * #Loading Revit's API UI classes  
+import Autodesk #Tải không gian tên Autodesk
+from Autodesk.Revit.DB import * #Tải các lớp API của Revit
+from Autodesk.Revit.UI import * #Tải các lớp UI của Revit
 
-doc = DocumentManager.Instance.CurrentDBDocument #Finally, setting up handles to the active Revit document
-uiapp = DocumentManager.Instance.CurrentUIApplication #Setting a handle to the active Revit UI document
-app = uiapp.Application  #Setting a handle to the currently-open instance of the Revit application
-uidoc = uiapp.ActiveUIDocument #Setting a handle to the currently-open instance of the Revit UI application
-#######OK NOW YOU CAN CODE########
+doc = DocumentManager.Instance.CurrentDBDocument #Cuối cùng, thiết lập các tay cầm cho tài liệu Revit hiện tại
+uiapp = DocumentManager.Instance.CurrentUIApplication #Thiết lập một tay cầm cho tài liệu UI Revit hiện tại
+app = uiapp.Application  #Thiết lập một tay cầm cho phiên bản hiện đang mở của ứng dụng Revit
+uidoc = uiapp.ActiveUIDocument #Thiết lập một tay cầm cho phiên bản hiện đang mở của ứng dụng UI Revit
+#######OK BÂY GIỜ BẠN CÓ THỂ VIẾT CODE########
 
 OUT = True
 ```
 
 ***
 
-**Importing Required Libraries**
+**Nhập Các Thư Viện Cần Thiết**
 
 ```python
 import clr
 import sys
 ```
 
-* `clr`: Stands for Common Language Runtime, .NET's execution environment that supports multiple programming languages.
-* `sys`: A fundamental Python library used here to load standard IronPython libraries.
+* `clr`: Viết tắt của Common Language Runtime, môi trường thực thi của .NET hỗ trợ nhiều ngôn ngữ lập trình.
+* `sys`: Một thư viện cơ bản của Python được sử dụng ở đây để tải các thư viện chuẩn của IronPython.
 
-**Loading Standard IronPython Libraries**
+**Tải Các Thư Viện Chuẩn Của IronPython**
 
 ```python
 sys.path.append('C:\Program Files (x86)\IronPython 2.7\Lib')
 ```
 
-* Adds the standard IronPython libraries to the system path, which includes a wide range of functionalities from servers and encryption to regular expressions.
+* Thêm các thư viện chuẩn của IronPython vào đường dẫn hệ thống, bao gồm một loạt các chức năng từ máy chủ và mã hóa đến các biểu thức chính quy.
 
-**Importing .NET and System Namespaces**
+**Nhập Không Gian Tên .NET và System**
 
 ```python
 import System
@@ -88,11 +82,11 @@ from System import Array
 from System.Collections.Generic import *
 ```
 
-* `System`: The root namespace in .NET.
-* `Array`: A .NET class for handling array data.
-* `System.Collections.Generic`: Allows handling of generics, which are necessary for certain Revit API operations requiring strongly-typed generic lists (`IList`).
+* `System`: Không gian tên gốc trong .NET.
+* `Array`: Một lớp của .NET để xử lý dữ liệu mảng.
+* `System.Collections.Generic`: Cho phép xử lý generics, cần thiết cho một số hoạt động của API Revit yêu cầu các danh sách generics có kiểu mạnh (`IList`).
 
-**Adding References to Dynamo and Revit Libraries**
+**Thêm Tham Chiếu Đến Các Thư Viện Dynamo và Revit**
 
 ```python
 clr.AddReference('ProtoGeometry')
@@ -104,13 +98,13 @@ clr.ImportExtensions(Revit.GeometryConversion)
 clr.AddReference("RevitServices")
 ```
 
-* `ProtoGeometry`: A Dynamo library for proxy geometry classes.
-* `Autodesk.DesignScript.Geometry`: Imports everything from Dynamo's geometry library.
-* `RevitNodes`: Dynamo's nodes for Revit.
-* `Revit.Elements` and `Revit.GeometryConversion`: Extensions for handling Revit elements and geometry within Dynamo.
-* `RevitServices`: Classes for handling Revit documents in Dynamo.
+* `ProtoGeometry`: Một thư viện của Dynamo cho các lớp hình học proxy.
+* `Autodesk.DesignScript.Geometry`: Nhập tất cả từ thư viện hình học của Dynamo.
+* `RevitNodes`: Các node của Dynamo cho Revit.
+* `Revit.Elements` và `Revit.GeometryConversion`: Các phần mở rộng để xử lý các phần tử và hình học của Revit trong Dynamo.
+* `RevitServices`: Các lớp để xử lý các tài liệu Revit trong Dynamo.
 
-**Managing Revit Documents and Transactions**
+**Quản Lý Tài Liệu và Giao Dịch Revit**
 
 ```python
 import RevitServices 
@@ -120,11 +114,11 @@ clr.AddReference("RevitAPI")
 clr.AddReference("RevitAPIUI")
 ```
 
-* `DocumentManager`: Keeps track of the document currently attached to Dynamo.
-* `TransactionManager`: Manages opening and closing transactions for modifying the Revit document's database.
-* `RevitAPI` and `RevitAPIUI`: References to Revit's API and UI DLLs, necessary for interacting with Revit's core functionalities.
+* `DocumentManager`: Theo dõi tài liệu hiện đang được đính kèm với Dynamo.
+* `TransactionManager`: Quản lý việc mở và đóng các giao dịch để thay đổi cơ sở dữ liệu của tài liệu Revit.
+* `RevitAPI` và `RevitAPIUI`: Tham chiếu đến các DLL API và UI của Revit, cần thiết để tương tác với các chức năng cốt lõi của Revit.
 
-**Importing Autodesk Revit Namespaces**
+**Nhập Các Không Gian Tên Autodesk Revit**
 
 ```python
 import Autodesk
@@ -132,11 +126,11 @@ from Autodesk.Revit.DB import *
 from Autodesk.Revit.UI import *
 ```
 
-* `Autodesk`: The namespace for Autodesk-related classes.
-* `Autodesk.Revit.DB`: Imports Revit's database classes.
-* `Autodesk.Revit.UI`: Imports Revit's UI classes.
+* `Autodesk`: Không gian tên cho các lớp liên quan đến Autodesk.
+* `Autodesk.Revit.DB`: Nhập các lớp cơ sở dữ liệu của Revit.
+* `Autodesk.Revit.UI`: Nhập các lớp UI của Revit.
 
-**Setting Up Handles to Revit Application**
+**Thiết Lập Các Tay Cầm Cho Ứng Dụng Revit**
 
 ```python
 doc = DocumentManager.Instance.CurrentDBDocument
@@ -145,15 +139,15 @@ app = uiapp.Application
 uidoc = uiapp.ActiveUIDocument
 ```
 
-* `doc`: Handle to the active Revit document.
-* `uiapp`: Handle to the active Revit UI application.
-* `app`: Handle to the currently open instance of the Revit application.
-* `uidoc`: Handle to the currently open instance of the Revit UI document.
+* `doc`: Tay cầm cho tài liệu Revit hiện tại.
+* `uiapp`: Tay cầm cho ứng dụng UI Revit hiện tại.
+* `app`: Tay cầm cho phiên bản hiện đang mở của ứng dụng Revit.
+* `uidoc`: Tay cầm cho phiên bản hiện đang mở của tài liệu UI Revit.
 
-**Output Confirmation**
+**Xác Nhận Đầu Ra**
 
 ```python
 OUT = True
 ```
 
-* This line confirms the script has been executed successfully.
+* Dòng này xác nhận rằng script đã được thực thi thành công.
