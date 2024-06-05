@@ -1,6 +1,6 @@
 # Design Extension
 
-## Stage 1
+## Part 1
 
 ***
 
