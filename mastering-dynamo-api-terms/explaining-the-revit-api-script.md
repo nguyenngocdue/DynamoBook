@@ -1,9 +1,13 @@
-
 ---
 description: >-
-  Trang này sẽ hướng dẫn bạn qua script API Revit được cung cấp, giải thích từng phần và mục đích của nó. Script này tận dụng Revit API và Dynamo để tương tác với các tài liệu Revit một cách lập trình.
+  Trang này sẽ hướng dẫn bạn qua script API Revit được cung cấp, giải thích từng
+  phần và mục đích của nó. Script này tận dụng Revit API và Dynamo để tương tác
+  với các tài liệu Revit một cách lập trình.
+---
 
-# Giải Thích Script API Revit
+# Giải thích các thuật ngữ thường gặp trong Revit API
+
+## Giải Thích Script API Revit
 
 ```python
 import clr #Đây là Môi Trường Thực Thi Ngôn Ngữ Chung của .NET. Nó là một môi trường thực thi
