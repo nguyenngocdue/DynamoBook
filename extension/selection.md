@@ -10,7 +10,7 @@
 
 <summary>Column</summary>
 
-## ![](../.gitbook/assets/highlight.png)
+### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -23,24 +23,9 @@
 
 <details>
 
-<summary>Column</summary>
+<summary><strong>Floor</strong></summary>
 
-## ![](../.gitbook/assets/highlight.png)
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary>Column</summary>
-
-## ![](../.gitbook/assets/highlight.png)
+### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -53,24 +38,9 @@
 
 <details>
 
-<summary>Column</summary>
+<summary><strong>Wall</strong></summary>
 
-## ![](../.gitbook/assets/highlight.png)
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary>Column</summary>
-
-## ![](../.gitbook/assets/highlight.png)
+### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -83,24 +53,9 @@
 
 <details>
 
-<summary>Column</summary>
+<summary><strong>Window</strong></summary>
 
-## ![](../.gitbook/assets/highlight.png)
-
-**Code example**
-
-```python
-   print(123)
-
-```
-
-</details>
-
-<details>
-
-<summary>Column</summary>
-
-## ![](../.gitbook/assets/highlight.png)
+### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -113,9 +68,9 @@
 
 <details>
 
-<summary>Column</summary>
+<summary><strong>Door</strong></summary>
 
-## ![](../.gitbook/assets/highlight.png)
+### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -126,15 +81,80 @@
 
 </details>
 
-1. **Framing**
-2. **Floor**
-3. **Wall**
-4. **Window**
-5. **Door**
-6. **Furniture**
-7. **Model InPlace**
-8. **Line**
-9. **Grid**
+<details>
+
+<summary><strong>Furniture</strong></summary>
+
+### ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary><strong>Model InPlace</strong></summary>
+
+### ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary><strong>Line</strong></summary>
+
+### ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary><strong>Grid</strong></summary>
+
+### ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
+
+<details>
+
+<summary><strong>Pipe</strong></summary>
+
+### ![](../.gitbook/assets/highlight.png)
+
+**Code example**
+
+```python
+   print(123)
+
+```
+
+</details>
 
 #### Filtering
 
