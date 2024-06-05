@@ -8,9 +8,9 @@
 
 <details>
 
-<summary>Column</summary>
+<summary>Column <mark style="color:yellow;">(coming soon)</mark></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -25,7 +25,7 @@
 
 <summary><strong>Floor</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -40,7 +40,7 @@
 
 <summary><strong>Wall</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -55,7 +55,7 @@
 
 <summary><strong>Window</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -70,7 +70,7 @@
 
 <summary><strong>Door</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -85,7 +85,7 @@
 
 <summary><strong>Furniture</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -100,7 +100,7 @@
 
 <summary><strong>Model InPlace</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -115,7 +115,7 @@
 
 <summary><strong>Line</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -130,7 +130,7 @@
 
 <summary><strong>Grid</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -145,7 +145,7 @@
 
 <summary><strong>Pipe</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -156,13 +156,13 @@
 
 </details>
 
-#### Filtering
+### Filtering
 
 <details>
 
 <summary>Column</summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -177,7 +177,7 @@
 
 <summary><strong>Floor</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -192,7 +192,7 @@
 
 <summary><strong>Wall</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -207,7 +207,7 @@
 
 <summary><strong>Window</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -222,7 +222,7 @@
 
 <summary><strong>Door</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -237,7 +237,7 @@
 
 <summary><strong>Furniture</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -252,7 +252,7 @@
 
 <summary><strong>Model InPlace</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -267,7 +267,7 @@
 
 <summary><strong>Line</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -282,7 +282,7 @@
 
 <summary><strong>Grid</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -297,7 +297,7 @@
 
 <summary><strong>Pipe</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -308,13 +308,13 @@
 
 </details>
 
-#### Changed Parameters
+### Changed Parameters
 
 <details>
 
 <summary>Column</summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -329,7 +329,7 @@
 
 <summary><strong>Floor</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -344,7 +344,7 @@
 
 <summary><strong>Wall</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -359,7 +359,7 @@
 
 <summary><strong>Window</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -374,7 +374,7 @@
 
 <summary><strong>Door</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -389,7 +389,7 @@
 
 <summary><strong>Furniture</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -404,7 +404,7 @@
 
 <summary><strong>Model InPlace</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -419,7 +419,7 @@
 
 <summary><strong>Line</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -434,7 +434,7 @@
 
 <summary><strong>Grid</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -449,7 +449,7 @@
 
 <summary><strong>Pipe</strong></summary>
 
-### ![](../.gitbook/assets/highlight.png)
+#### ![](../.gitbook/assets/highlight.png)
 
 **Code example**
 
@@ -459,4 +459,3 @@
 ```
 
 </details>
-
