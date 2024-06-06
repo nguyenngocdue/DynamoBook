@@ -18,6 +18,7 @@
     * [OfClass](mastering-dynamo-api-terms/explaining-the-revit-api-script/ofclass.md)
     * [OfCategory](mastering-dynamo-api-terms/explaining-the-revit-api-script/ofcategory.md)
     * [ElementID](mastering-dynamo-api-terms/explaining-the-revit-api-script/elementid.md)
+    * [BuiltInCategory](mastering-dynamo-api-terms/explaining-the-revit-api-script/builtincategory.md)
 * [Coding in Dynamo](coding-in-dynamo/README.md)
   * [Code Blocks and DesignScript](coding-in-dynamo/code-blocks-and-designscript/README.md)
     * [What's a Code Block](coding-in-dynamo/code-blocks-and-designscript/whats-a-code-block.md)
