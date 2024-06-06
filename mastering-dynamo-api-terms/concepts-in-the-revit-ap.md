@@ -1,4 +1,4 @@
-# Các Khái Niệm trong Revit AP
+# Concepts trong Revit API
 
 ## Cấu Trúc Phân Cấp của Revit <a href="#revit-hierarchy" id="revit-hierarchy"></a>
 
@@ -6,7 +6,7 @@
 
 <mark style="color:purple;">Hãy cùng điểm qua cấu trúc phân cấp của Revit.</mark>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://primer2.dynamobim.org/~gitbook/image?url=https%3A%2F%2F1734247194-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FY5ZuHF3yuXFWp1C46ZSo%252Fuploads%252Fgit-blob-2c48f5a2abc5376e59553182a1d55c9b12806ac0%252Fhierarchy.png%3Falt%3Dmedia&#x26;width=768&#x26;dpr=4&#x26;quality=100&#x26;sign=75f527ed4fb6dd6d501bc4c1b3142ca37cea6bc0f8784f3edc99998767946050" alt=""><figcaption></figcaption></figure>
 

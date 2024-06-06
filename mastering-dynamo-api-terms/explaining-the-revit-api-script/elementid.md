@@ -1,6 +1,8 @@
-# ElementId
+# ElementID
 
 Trong Revit API, `ElementId` là một lớp quan trọng được sử dụng để định danh duy nhất các phần tử trong một tài liệu Revit. Mỗi phần tử trong một dự án Revit có một `ElementId` duy nhất, giúp bạn dễ dàng truy xuất và thao tác với các phần tử đó thông qua API.
+
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Công dụng của `ElementId`
 
@@ -14,7 +16,7 @@ Trong Revit API, `ElementId` là một lớp quan trọng được sử dụng �
 
 Dưới đây là một số ví dụ minh họa cách sử dụng `ElementId` trong Revit API.
 
-### Ví dụ C#
+### Ví dụ C\#
 
 1. **Truy xuất phần tử bằng `ElementId`**:
 
