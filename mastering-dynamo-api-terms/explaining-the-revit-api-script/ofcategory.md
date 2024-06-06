@@ -2,7 +2,7 @@
 
 `OfCategory` là một phương thức của lớp `FilteredElementCollector` trong Revit API, được sử dụng để lọc các phần tử trong tài liệu Revit dựa trên danh mục (category) của chúng. Phương thức này chỉ định rằng chỉ các phần tử thuộc danh mục đã cho mới được bao gồm trong bộ sưu tập kết quả.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Công dụng của `OfCategory`
 
