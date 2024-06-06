@@ -52,6 +52,18 @@ except:
     t.RollBack()
 ```
 
+```Python
+# Bắt đầu một transaction
+TransactionManager.Instance.EnsureInTransaction(doc)
+
+# Thực hiện các thay đổi trong mô hình
+dim1 = doc.Create.NewDimension(view, line, re02)
+dim2 = doc.Create.NewDimension(view, offsetline, re03)
+
+# Kết thúc transaction
+TransactionManager.Instance.TransactionTaskDone()
+```
+
 ### Code C#:
 ```csharp
 using Autodesk.Revit.DB;
