@@ -21,6 +21,8 @@ Cung cấp một thuật ngữ từ từ điển lập trình Revit API.
 | **Document**                 | Đại diện cho một tài liệu Revit, bao gồm các phần tử, thông tin và cài đặt dự án.                    |
 | **Element**                  | Một đối tượng cơ bản trong Revit, như tường, cột, dầm, cửa, v.v.                                     |
 | **Family**                   | Một nhóm các thành phần chia sẻ các thuộc tính và hành vi chung.                                     |
+| **FamilyInstance**           | FamilyInstance là một đối tượng cụ thể trong mô hình Revit được tạo từ một Family                    |
+| **FamilyLoadOptions**        | Giao diện để kiểm soát các tùy chọn khi tải Family vào tài liệu.                                     |
 | **Parameter**                | Các thuộc tính hoặc dữ liệu liên quan đến một phần tử hoặc family.                                   |
 | **Transaction**              | Một khối mã cho phép thực hiện các thay đổi đối với tài liệu.                                        |
 | **Filter**                   | Dùng để chọn các phần tử dựa trên các tiêu chí cụ thể.                                               |
@@ -61,7 +63,6 @@ Cung cấp một thuật ngữ từ từ điển lập trình Revit API.
 | **Space**                    | Đại diện cho các không gian trong hệ thống MEP của Revit.                                            |
 | **Pipe**                     | Đại diện cho các ống trong hệ thống MEP của Revit.                                                   |
 | **Duct**                     | Đại diện cho các ống dẫn trong hệ thống MEP của Revit.                                               |
-| **FamilyLoadOptions**        | Giao diện để kiểm soát các tùy chọn khi tải Family vào tài liệu.                                     |
 | **ISelectionFilter**         | Giao diện để tùy chỉnh các bộ lọc chọn các phần tử trong Revit.                                      |
 | **SpatialElement**           | Đại diện cho các phần tử không gian như Phòng và Không gian.                                         |
 | **ConnectorManager**         | Quản lý các Connectors của một FamilyInstance.                                                       |
