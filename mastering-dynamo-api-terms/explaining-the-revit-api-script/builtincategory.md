@@ -4,6 +4,8 @@
 
 Trong Revit API, `BuiltInCategory` là một enumeration (enum) chứa các danh mục được định nghĩa sẵn của các phần tử trong Revit. Mỗi mục trong `BuiltInCategory` đại diện cho một loại phần tử cụ thể hoặc một nhóm các phần tử trong Revit. Điều này giúp dễ dàng truy xuất và thao tác với các phần tử cụ thể dựa trên loại của chúng.
 
+<figure><img src="../../.gitbook/assets/diagram.png" alt=""><figcaption></figcaption></figure>
+
 ### Ví dụ một số giá trị trong `BuiltInCategory` bao gồm:
 
 * `OST_Walls`: Đại diện cho các bức tường.
@@ -13,9 +15,7 @@ Trong Revit API, `BuiltInCategory` là một enumeration (enum) chứa các danh
 
 Việc sử dụng `BuiltInCategory` giúp việc lập trình với Revit API trở nên dễ dàng và hiệu quả hơn vì bạn có thể dễ dàng xác định và làm việc với các loại phần tử cụ thể mà không cần phải sử dụng các chuỗi văn bản hoặc các tham số khác khó quản lý hơn.
 
-## Sơ đồ mindmap thể hiện sự phân bố của Revit API BuiltInCategory
 
-<figure><img src="../../.gitbook/assets/diagram.png" alt=""><figcaption></figcaption></figure>
 
 ## Sử dụng `BuiltInCategory` trong C\#
 
