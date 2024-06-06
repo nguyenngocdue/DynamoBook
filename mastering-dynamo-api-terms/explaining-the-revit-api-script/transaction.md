@@ -24,13 +24,14 @@ Nếu không có Transaction, các thay đổi sẽ được thực hiện ngay 
 
 ## Flow của TransactionManager
 
-Dưới đây là sơ đồ minh họa flow của TransactionManager trong Revit API:&#x20;
+Dưới đây là sơ đồ minh họa flow của TransactionManager trong Revit API:
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ## Ví dụ mã về TransactionManager
 
 ### Code Python:
+
 ```python
 from Autodesk.Revit.DB import Transaction
 
@@ -52,7 +53,7 @@ except:
     t.RollBack()
 ```
 
-```Python
+```python
 # Bắt đầu một transaction
 TransactionManager.Instance.EnsureInTransaction(doc)
 
@@ -65,6 +66,7 @@ TransactionManager.Instance.TransactionTaskDone()
 ```
 
 ### Code C#:
+
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
