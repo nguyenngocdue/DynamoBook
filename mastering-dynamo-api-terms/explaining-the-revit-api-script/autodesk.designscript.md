@@ -6,48 +6,33 @@
 
 `Autodesk.DesignScript` là một phần quan trọng của Dynamo API và cung cấp nhiều loại và phương thức để làm việc với các mô hình hình học, toán học, và dữ liệu. Dưới đây là danh sách các loại (types) chính trong thư viện `Autodesk.DesignScript`.
 
-### Các Nhóm Chính trong Autodesk.DesignScript
+## Các Nhóm Chính trong Autodesk.DesignScript
 
-#### 1. Core (Lõi)
-
-* Import
-* Range
-* Math
-* String
-
-#### 2. Geometry (Hình Học)
-
-* Point
-* Vector
-* Line
-* Plane
-* Surface
-* Solid
-* Circle
-* Arc
-* PolyCurve
-* NurbsCurve
-* NurbsSurface
-
-#### 3. Collections (Bộ Sưu Tập)
-
-* List
-* Dictionary
-
-#### 4. IO (Đầu Vào/Đầu Ra)
-
-* File
-* Directory
-
-#### 5. Visualize (Trực Quan)
-
-* Display
-* Color
-
-#### 6. Analysis (Phân Tích)
-
-* StructuralAnalysis
-* ThermalAnalysis
+| **Nhóm**                     | **Thành Phần**     |
+| ---------------------------- | ------------------ |
+| **Core (Lõi)**               | Import             |
+|                              | Range              |
+|                              | Math               |
+|                              | String             |
+| **Geometry (Hình Học)**      | Point              |
+|                              | Vector             |
+|                              | Line               |
+|                              | Plane              |
+|                              | Surface            |
+|                              | Solid              |
+|                              | Circle             |
+|                              | Arc                |
+|                              | PolyCurve          |
+|                              | NurbsCurve         |
+|                              | NurbsSurface       |
+| **Collections (Bộ Sưu Tập)** | List               |
+|                              | Dictionary         |
+| **IO (Đầu Vào/Đầu Ra)**      | File               |
+|                              | Directory          |
+| **Visualize (Trực Quan)**    | Display            |
+|                              | Color              |
+| **Analysis (Phân Tích)**     | StructuralAnalysis |
+|                              | ThermalAnalysis    |
 
 ### Danh Sách Chi Tiết Các Loại
 
