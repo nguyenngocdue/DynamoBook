@@ -30,7 +30,7 @@ Dưới đây là sơ đồ minh họa flow của TransactionManager trong Revit
 
 ## Ví dụ mã về TransactionManager
 
-### Mã Python:
+### Code Python:
 ```python
 from Autodesk.Revit.DB import Transaction
 
@@ -52,7 +52,7 @@ except:
     t.RollBack()
 ```
 
-### Mã C#:
+### Code C#:
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
