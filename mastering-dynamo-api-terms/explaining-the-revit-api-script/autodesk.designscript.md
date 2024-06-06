@@ -36,46 +36,33 @@
 
 ### Danh Sách Chi Tiết Các Loại
 
-#### Core (Lõi)
+## Các Nhóm Chính trong Autodesk.DesignScript
 
-* **Import**: Import các thư viện khác vào script của bạn.
-* **Range**: Tạo ra các dãy số.
-* **Math**: Các hàm toán học cơ bản như sin, cos, tan, log, sqrt, exp.
-* **String**: Xử lý chuỗi như nối chuỗi, tách chuỗi, kiểm tra độ dài chuỗi.
-
-#### Geometry (Hình Học)
-
-* **Point**: Tạo và thao tác với điểm (points).
-* **Vector**: Tạo và thao tác với vector.
-* **Line**: Tạo và thao tác với đường thẳng.
-* **Plane**: Tạo và thao tác với mặt phẳng.
-* **Surface**: Tạo và thao tác với bề mặt.
-* **Solid**: Tạo và thao tác với khối rắn.
-* **Circle**: Tạo và thao tác với hình tròn.
-* **Arc**: Tạo và thao tác với cung tròn.
-* **PolyCurve**: Tạo và thao tác với đa đường cong.
-* **NurbsCurve**: Tạo và thao tác với đường cong NURBS.
-* **NurbsSurface**: Tạo và thao tác với bề mặt NURBS.
-
-#### Collections (Bộ Sưu Tập)
-
-* **List**: Các hàm để thao tác với danh sách như tạo danh sách, thêm phần tử, loại bỏ phần tử, lọc, và sắp xếp.
-* **Dictionary**: Các hàm để thao tác với từ điển (dictionary).
-
-#### IO (Đầu Vào/Đầu Ra)
-
-* **File**: Đọc và ghi file.
-* **Directory**: Thao tác với thư mục.
-
-#### Visualize (Trực Quan)
-
-* **Display**: Các hàm để hiển thị dữ liệu và hình ảnh.
-* **Color**: Các hàm để làm việc với màu sắc.
-
-#### Analysis (Phân Tích)
-
-* **StructuralAnalysis**: Các hàm để phân tích kết cấu.
-* **ThermalAnalysis**: Các hàm để phân tích nhiệt.
+| **Nhóm**                     | **Thành Phần**     | **Mô Tả**                                                                                            |
+| ---------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Core (Lõi)**               | Import             | Import các thư viện khác vào script của bạn.                                                         |
+|                              | Range              | Tạo ra các dãy số.                                                                                   |
+|                              | Math               | Các hàm toán học cơ bản như sin, cos, tan, log, sqrt, exp.                                           |
+|                              | String             | Xử lý chuỗi như nối chuỗi, tách chuỗi, kiểm tra độ dài chuỗi.                                        |
+| **Geometry (Hình Học)**      | Point              | Tạo và thao tác với điểm (points).                                                                   |
+|                              | Vector             | Tạo và thao tác với vector.                                                                          |
+|                              | Line               | Tạo và thao tác với đường thẳng.                                                                     |
+|                              | Plane              | Tạo và thao tác với mặt phẳng.                                                                       |
+|                              | Surface            | Tạo và thao tác với bề mặt.                                                                          |
+|                              | Solid              | Tạo và thao tác với khối rắn.                                                                        |
+|                              | Circle             | Tạo và thao tác với hình tròn.                                                                       |
+|                              | Arc                | Tạo và thao tác với cung tròn.                                                                       |
+|                              | PolyCurve          | Tạo và thao tác với đa đường cong.                                                                   |
+|                              | NurbsCurve         | Tạo và thao tác với đường cong NURBS.                                                                |
+|                              | NurbsSurface       | Tạo và thao tác với bề mặt NURBS.                                                                    |
+| **Collections (Bộ Sưu Tập)** | List               | Các hàm để thao tác với danh sách như tạo danh sách, thêm phần tử, loại bỏ phần tử, lọc, và sắp xếp. |
+|                              | Dictionary         | Các hàm để thao tác với từ điển (dictionary).                                                        |
+| **IO (Đầu Vào/Đầu Ra)**      | File               | Đọc và ghi file.                                                                                     |
+|                              | Directory          | Thao tác với thư mục.                                                                                |
+| **Visualize (Trực Quan)**    | Display            | Các hàm để hiển thị dữ liệu và hình ảnh.                                                             |
+|                              | Color              | Các hàm để làm việc với màu sắc.                                                                     |
+| **Analysis (Phân Tích)**     | StructuralAnalysis | Các hàm để phân tích kết cấu.                                                                        |
+|                              | ThermalAnalysis    | Các hàm để phân tích nhiệt.                                                                          |
 
 ### Sơ Đồ Thể Hiện Các Loại Trong Autodesk.DesignScript
 
