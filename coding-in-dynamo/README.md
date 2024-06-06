@@ -8,4 +8,4 @@ description: Dynamo is a great door to start coding for the AEC world.
 * [Geometry with DesignScript](https://primer2.dynamobim.org/8\_coding\_in\_dynamo/8-2\_geometry-with-design-script)
 * [Python](https://primer2.dynamobim.org/8\_coding\_in\_dynamo/8-3\_python)
 
-![](<../.gitbook/assets/image (1) (1).png>)\
+![](<../.gitbook/assets/image (1) (1) (1).png>)\

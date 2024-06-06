@@ -1,7 +1,8 @@
 # OfCategory
 
-
 `OfCategory` là một phương thức của lớp `FilteredElementCollector` trong Revit API, được sử dụng để lọc các phần tử trong tài liệu Revit dựa trên danh mục (category) của chúng. Phương thức này chỉ định rằng chỉ các phần tử thuộc danh mục đã cho mới được bao gồm trong bộ sưu tập kết quả.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ## Công dụng của `OfCategory`
 
@@ -11,11 +12,11 @@ Phương thức `OfCategory` giúp bạn dễ dàng tìm và thao tác với cá
 
 Bạn có thể sử dụng `OfCategory` với bất kỳ danh mục phần tử nào được định nghĩa trong Revit API. Một số ví dụ phổ biến bao gồm:
 
-- `BuiltInCategory.OST_Walls`: Lọc và lấy tất cả các tường trong tài liệu.
-- `BuiltInCategory.OST_Doors`: Lọc và lấy tất cả các cửa trong tài liệu.
-- `BuiltInCategory.OST_Windows`: Lọc và lấy tất cả các cửa sổ trong tài liệu.
-- `BuiltInCategory.OST_Furniture`: Lọc và lấy tất cả các đồ nội thất trong tài liệu.
-- `BuiltInCategory.OST_Rooms`: Lọc và lấy tất cả các phòng trong tài liệu.
+* `BuiltInCategory.OST_Walls`: Lọc và lấy tất cả các tường trong tài liệu.
+* `BuiltInCategory.OST_Doors`: Lọc và lấy tất cả các cửa trong tài liệu.
+* `BuiltInCategory.OST_Windows`: Lọc và lấy tất cả các cửa sổ trong tài liệu.
+* `BuiltInCategory.OST_Furniture`: Lọc và lấy tất cả các đồ nội thất trong tài liệu.
+* `BuiltInCategory.OST_Rooms`: Lọc và lấy tất cả các phòng trong tài liệu.
 
 ## Ví dụ C# sử dụng `OfCategory`
 
@@ -82,9 +83,9 @@ OUT = walls
 
 ## Giải thích chi tiết
 
-- **FilteredElementCollector**: Đây là lớp được sử dụng để thu thập các phần tử từ tài liệu Revit. Bạn có thể áp dụng nhiều bộ lọc khác nhau để xác định các phần tử bạn quan tâm.
-- **OfCategory(BuiltInCategory)**: Phương thức này lọc các phần tử để chỉ bao gồm những phần tử thuộc danh mục đã chỉ định. Ví dụ, `OfCategory(BuiltInCategory.OST_Walls)` sẽ chỉ bao gồm các phần tử thuộc danh mục tường.
-- **ToElements()**: Phương thức này chuyển đổi các phần tử trong bộ sưu tập kết quả thành danh sách các phần tử.
+* **FilteredElementCollector**: Đây là lớp được sử dụng để thu thập các phần tử từ tài liệu Revit. Bạn có thể áp dụng nhiều bộ lọc khác nhau để xác định các phần tử bạn quan tâm.
+* **OfCategory(BuiltInCategory)**: Phương thức này lọc các phần tử để chỉ bao gồm những phần tử thuộc danh mục đã chỉ định. Ví dụ, `OfCategory(BuiltInCategory.OST_Walls)` sẽ chỉ bao gồm các phần tử thuộc danh mục tường.
+* **ToElements()**: Phương thức này chuyển đổi các phần tử trong bộ sưu tập kết quả thành danh sách các phần tử.
 
 ## Tổng kết
 
