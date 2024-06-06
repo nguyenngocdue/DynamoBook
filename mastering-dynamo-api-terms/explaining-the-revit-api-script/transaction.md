@@ -27,3 +27,60 @@ Nếu không có Transaction, các thay đổi sẽ được thực hiện ngay 
 Dưới đây là sơ đồ minh họa flow của TransactionManager trong Revit API:&#x20;
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+## Ví dụ mã về TransactionManager
+
+### Mã Python:
+```python
+from Autodesk.Revit.DB import Transaction
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+# Bắt đầu một transaction
+t = Transaction(doc, "My Transaction")
+t.Start()
+
+try:
+    # Thực hiện các thay đổi trong mô hình
+    # Ví dụ: tạo một bức tường
+    wall = Wall.Create(doc, Line.CreateBound(XYZ(0,0,0), XYZ(10,0,0)), wallTypeId, levelId, height, 0, False, False)
+    
+    # Commit transaction nếu các thay đổi hợp lệ
+    t.Commit()
+except:
+    # Rollback transaction nếu có lỗi xảy ra
+    t.RollBack()
+```
+
+### Mã C#:
+```csharp
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+
+public void Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+{
+    UIDocument uidoc = commandData.Application.ActiveUIDocument;
+    Document doc = uidoc.Document;
+
+    // Bắt đầu một transaction
+    using (Transaction t = new Transaction(doc, "My Transaction"))
+    {
+        t.Start();
+
+        try
+        {
+            // Thực hiện các thay đổi trong mô hình
+            // Ví dụ: tạo một bức tường
+            Wall wall = Wall.Create(doc, Line.CreateBound(new XYZ(0,0,0), new XYZ(10,0,0)), wallTypeId, levelId, height, 0, false, false);
+            
+            // Commit transaction nếu các thay đổi hợp lệ
+            t.Commit();
+        }
+        catch
+        {
+            // Rollback transaction nếu có lỗi xảy ra
+            t.RollBack();
+        }
+    }
+}
+```
