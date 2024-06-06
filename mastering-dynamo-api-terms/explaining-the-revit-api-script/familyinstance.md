@@ -1,5 +1,4 @@
-
-# FamilyInstance trong Revit
+# FamilyInstance
 
 Trong Revit, **FamilyInstance** là một đối tượng cụ thể trong mô hình Revit được tạo từ một Family (họ). Family là các nhóm các phần tử xây dựng (Building Elements) có thể được sử dụng lại trong các dự án khác nhau. FamilyInstance là các phiên bản cụ thể của các Family này được đặt trong mô hình Revit.
 
@@ -8,9 +7,7 @@ Trong Revit, **FamilyInstance** là một đối tượng cụ thể trong mô h
 Revit có ba loại Family chính:
 
 1. **System Families**: Bao gồm các phần tử xây dựng như tường, sàn, mái, và các phần tử hệ thống như ống dẫn và dây điện. Các Family này được xác định và quản lý trong dự án Revit và không thể được lưu dưới dạng tệp bên ngoài.
-
 2. **Loadable Families**: Bao gồm các phần tử xây dựng như cửa, cửa sổ, bàn ghế, thiết bị. Các Family này được tạo và lưu dưới dạng tệp RFA (Revit Family) và có thể được tải vào các dự án khác nhau.
-
 3. **In-Place Families**: Là các Family đặc biệt được tạo trực tiếp trong dự án và thường được sử dụng cho các đối tượng duy nhất không cần tái sử dụng trong các dự án khác.
 
 ## FamilyInstance trong Revit
@@ -23,23 +20,23 @@ Ví dụ, nếu bạn có một Family cho một loại cửa sổ, bạn có th
 
 Khi làm việc với FamilyInstance trong Revit, bạn có thể:
 
-- **Tạo mới một FamilyInstance**: Bằng cách tải một Family vào dự án và sau đó đặt nó vào mô hình.
-- **Chỉnh sửa thuộc tính của FamilyInstance**: Bạn có thể thay đổi các thông số như kích thước, vật liệu, và các thuộc tính khác của từng FamilyInstance.
-- **Lọc và quản lý FamilyInstance**: Sử dụng các công cụ và API của Revit để lọc, truy xuất, và quản lý các FamilyInstance trong mô hình.
+* **Tạo mới một FamilyInstance**: Bằng cách tải một Family vào dự án và sau đó đặt nó vào mô hình.
+* **Chỉnh sửa thuộc tính của FamilyInstance**: Bạn có thể thay đổi các thông số như kích thước, vật liệu, và các thuộc tính khác của từng FamilyInstance.
+* **Lọc và quản lý FamilyInstance**: Sử dụng các công cụ và API của Revit để lọc, truy xuất, và quản lý các FamilyInstance trong mô hình.
 
 ### Ví dụ về FamilyInstance trong thực tế
 
-- **Cửa sổ**: Một Family của cửa sổ có thể có nhiều FamilyInstance trong mô hình, mỗi FamilyInstance có thể được đặt ở các vị trí khác nhau trên các bức tường.
-- **Bàn ghế**: Một Family của bàn ghế có thể được sử dụng để tạo nhiều FamilyInstance trong một phòng hội nghị.
-- **Đèn chiếu sáng**: Một Family của đèn chiếu sáng có thể được sử dụng để tạo nhiều FamilyInstance trên trần nhà của một tòa nhà.
+* **Cửa sổ**: Một Family của cửa sổ có thể có nhiều FamilyInstance trong mô hình, mỗi FamilyInstance có thể được đặt ở các vị trí khác nhau trên các bức tường.
+* **Bàn ghế**: Một Family của bàn ghế có thể được sử dụng để tạo nhiều FamilyInstance trong một phòng hội nghị.
+* **Đèn chiếu sáng**: Một Family của đèn chiếu sáng có thể được sử dụng để tạo nhiều FamilyInstance trên trần nhà của một tòa nhà.
 
 ## Tóm tắt
 
 **FamilyInstance** trong Revit là các đối tượng cụ thể được đặt trong mô hình từ các Family đã tạo trước đó. Chúng cho phép người dùng sử dụng lại các thiết kế phần tử xây dựng và tùy chỉnh chúng cho phù hợp với yêu cầu cụ thể của từng dự án.
 
----
+***
 
-## Các ví dụ về Selection, Filtering, và Change Parameter bằng Python trong Dynamo
+## Các ví dụ Selection, Filtering, Change Parameter và Tạo FamilyInstance mới bằng Python trong Dynamo
 
 ### 1. Lựa chọn (Selection)
 
@@ -118,29 +115,86 @@ TransactionManager.Instance.TransactionTaskDone()
 OUT = family_instances
 ```
 
+### 4. Tạo mới một FamilyInstance
+
+Ví dụ này sẽ tải một Family vào dự án và tạo một FamilyInstance mới.
+
+```python
+import clr
+clr.AddReference('RevitServices')
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+clr.AddReference('RevitAPI')
+from Autodesk.Revit.DB import FilteredElementCollector, FamilyInstance, FamilySymbol, XYZ, ElementId, Transaction
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+# Đường dẫn đến file family (cập nhật đường dẫn đúng)
+family_path = "C:\\path_to_your_family\\your_family.rfa"
+
+# Tải family vào dự án
+family_loaded = clr.Reference[ElementId]()
+doc.LoadFamily(family_path, family_loaded)
+family = doc.GetElement(family_loaded.Value)
+
+# Lấy FamilySymbol (loại) của Family
+family_symbols = family.GetFamilySymbolIds()
+symbol = doc.GetElement(family_symbols[0]) if family_symbols.Count > 0 else None
+
+if symbol:
+    # Bắt đầu transaction
+    TransactionManager.Instance.EnsureInTransaction(doc)
+    
+    if not symbol.IsActive:
+        symbol.Activate()
+        doc.Regenerate()
+    
+    # Tạo FamilyInstance mới tại tọa độ (0, 0, 0)
+    new_instance = doc.Create.NewFamilyInstance(XYZ(0, 0, 0), symbol, Structure.StructuralType.NonStructural)
+    
+    # Kết thúc transaction
+    TransactionManager.Instance.TransactionTaskDone()
+    
+    # Trả về FamilyInstance mới tạo cho Dynamo
+    OUT = new_instance
+else:
+    OUT = "Family Symbol not found or Family failed to load"
+
+```
+
 ## Giải thích từng bước
 
 ### Lựa chọn (Selection)
 
-- **FilteredElementCollector**: Sử dụng `FilteredElementCollector` để thu thập tất cả các đối tượng trong mô hình Revit.
-- **WhereElementIsNotElementType()**: Loại bỏ các kiểu phần tử (element types) và chỉ lấy các phần tử thực tế trong mô hình.
-- **ToElements()**: Chuyển kết quả từ bộ lọc thành một danh sách các đối tượng.
-- **OUT**: Trả về kết quả cho Dynamo.
+* **FilteredElementCollector**: Sử dụng `FilteredElementCollector` để thu thập tất cả các đối tượng trong mô hình Revit.
+* **WhereElementIsNotElementType()**: Loại bỏ các kiểu phần tử (element types) và chỉ lấy các phần tử thực tế trong mô hình.
+* **ToElements()**: Chuyển kết quả từ bộ lọc thành một danh sách các đối tượng.
+* **OUT**: Trả về kết quả cho Dynamo.
 
 ### Lọc (Filtering)
 
-- **FilteredElementCollector**: Sử dụng `FilteredElementCollector` để thu thập các đối tượng.
-- **OfClass(FamilyInstance)**: Lọc các đối tượng thuộc loại FamilyInstance.
-- **ToElements()**: Chuyển kết quả từ bộ lọc thành một danh sách các đối tượng.
-- **OUT**: Trả về kết quả cho Dynamo.
+* **FilteredElementCollector**: Sử dụng `FilteredElementCollector` để thu thập các đối tượng.
+* **OfClass(FamilyInstance)**: Lọc các đối tượng thuộc loại FamilyInstance.
+* **ToElements()**: Chuyển kết quả từ bộ lọc thành một danh sách các đối tượng.
+* **OUT**: Trả về kết quả cho Dynamo.
 
 ### Thay đổi Tham Số (Change Parameter)
 
-- **FilteredElementCollector**: Sử dụng `FilteredElementCollector` để thu thập các FamilyInstance.
-- **TransactionManager**: Quản lý các giao dịch trong Revit để đảm bảo rằng tất cả các thay đổi được áp dụng đồng thời.
-- **LookupParameter("Comments").Set("Updated by Dynamo")**: Tìm tham số "Comments" và đặt giá trị mới cho tham số này.
-- **OUT**: Trả về danh sách các FamilyInstance đã cập nhật cho Dynamo.
+* **FilteredElementCollector**: Sử dụng `FilteredElementCollector` để thu thập các FamilyInstance.
+* **TransactionManager**: Quản lý các giao dịch trong Revit để đảm bảo rằng tất cả các thay đổi được áp dụng đồng thời.
+* **LookupParameter("Comments").Set("Updated by Dynamo")**: Tìm tham số "Comments" và đặt giá trị mới cho tham số này.
+* **OUT**: Trả về danh sách các FamilyInstance đã cập nhật cho Dynamo.
+
+### Tạo mới một FamilyInstance
+
+* **LoadFamily**: Tải Family từ đường dẫn tệp.
+* **GetFamilySymbolIds**: Lấy danh sách các FamilySymbol (loại) từ Family.
+* **TransactionManager**: Quản lý các giao dịch trong Revit để đảm bảo rằng tất cả các thay đổi được áp dụng đồng thời.
+* **Activate()**: Kích hoạt FamilySymbol nếu chưa được kích hoạt.
+* **NewFamilyInstance**: Tạo mới một FamilyInstance tại tọa độ xác định.
+* **OUT**: Trả về
 
 Những ví dụ này minh họa cách sử dụng Dynamo Python để thực hiện các thao tác cơ bản trên các đối tượng trong mô hình Revit.
 
----
+***
