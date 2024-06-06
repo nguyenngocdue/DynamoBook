@@ -110,4 +110,4 @@ Dưới đây là sơ đồ minh họa các thành phần chính của thư vi�
 
 &#x20;
 
-<figure><img src="https://diagrams.helpful.dev/d/d:32TndhdB" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="https://diagrams.helpful.dev/d/d:32TndhdB" alt="" width="1000"><figcaption></figcaption></figure>
