@@ -108,6 +108,4 @@ OUT = wall
 
 Dưới đây là sơ đồ minh họa các thành phần chính của thư viện `Autodesk.Revit.DB`:
 
-&#x20;
-
-<figure><img src="https://diagrams.helpful.dev/d/d:32TndhdB" alt="" width="1000"><figcaption></figcaption></figure>
+<figure><img src="https://diagrams.helpful.dev/d/d:32TndhdB" alt=""><figcaption></figcaption></figure>
