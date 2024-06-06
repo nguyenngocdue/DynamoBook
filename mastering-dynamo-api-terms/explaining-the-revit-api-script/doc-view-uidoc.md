@@ -1,9 +1,5 @@
 # Doc, View, UIdoc
 
-## Doc, View, UIdoc
-
-## Tài liệu API Revit
-
 ### DocumentManager.Instance.CurrentDBDocument
 
 **Mô tả:**
